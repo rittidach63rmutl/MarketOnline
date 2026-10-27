@@ -123,3 +123,4 @@ npm run dev
    - `VITE_API_BASE_URL` = `https://your-backend-service.onrender.com/api`
 4. กด **Deploy** (ไฟล์ `frontend/vercel.json` จะตั้งค่า SPA Routing และ Security Headers ให้โดยอัตโนมัติ)
 
+# MarketOnline
