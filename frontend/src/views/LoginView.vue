@@ -46,7 +46,7 @@ async function handleLogin() {
 </script>
 
 <template>
-  <div class="max-w-md mx-auto mt-8 bg-slate-900/80 border border-slate-800 rounded-2xl p-6 sm:p-8 space-y-6">
+  <div class="max-w-md mx-auto mt-3 sm:mt-8 bg-slate-900/80 border border-slate-800 rounded-2xl p-4 sm:p-8 space-y-5 sm:space-y-6">
     <div class="space-y-1 text-center">
       <span class="px-2.5 py-1 rounded-full text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
         HttpOnly Session + Brute-Force Protection
@@ -109,4 +109,3 @@ async function handleLogin() {
     </div>
   </div>
 </template>
-

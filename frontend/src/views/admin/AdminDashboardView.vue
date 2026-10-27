@@ -136,7 +136,7 @@ onMounted(loadDashboardData);
 </script>
 
 <template>
-  <div class="space-y-8">
+  <div class="space-y-5 sm:space-y-8">
     <!-- Header & Tabs -->
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-800 pb-4">
       <div>
@@ -146,7 +146,7 @@ onMounted(loadDashboardData);
         <h1 class="text-2xl font-bold text-white mt-1">Admin Security &amp; Store Console</h1>
       </div>
 
-      <div class="flex gap-2">
+      <div class="flex flex-wrap gap-2">
         <button
           @click="activeTab = 'overview'"
           class="px-3.5 py-1.5 rounded-lg text-xs font-semibold transition-colors"
@@ -190,21 +190,21 @@ onMounted(loadDashboardData);
 
     <!-- KPI Summary Cards -->
     <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800">
+      <div class="p-4 sm:p-5 rounded-xl bg-slate-900/70 border border-slate-800">
         <span class="text-xs text-slate-400">Total Revenue (Excl. Cancelled)</span>
         <p class="text-2xl font-extrabold text-emerald-400 mt-1">
           ฿{{ Number(metrics.totalRevenue).toLocaleString() }}
         </p>
       </div>
-      <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800">
+      <div class="p-4 sm:p-5 rounded-xl bg-slate-900/70 border border-slate-800">
         <span class="text-xs text-slate-400">Total Orders</span>
         <p class="text-2xl font-extrabold text-white mt-1">{{ metrics.totalOrders }}</p>
       </div>
-      <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800">
+      <div class="p-4 sm:p-5 rounded-xl bg-slate-900/70 border border-slate-800">
         <span class="text-xs text-slate-400">Active Products</span>
         <p class="text-2xl font-extrabold text-white mt-1">{{ metrics.totalProducts }}</p>
       </div>
-      <div class="p-5 rounded-xl bg-slate-900/70 border border-slate-800">
+      <div class="p-4 sm:p-5 rounded-xl bg-slate-900/70 border border-slate-800">
         <span class="text-xs text-slate-400">Registered Customers</span>
         <p class="text-2xl font-extrabold text-white mt-1">{{ metrics.totalCustomers }}</p>
       </div>
@@ -484,4 +484,3 @@ onMounted(loadDashboardData);
     </div>
   </div>
 </template>
-

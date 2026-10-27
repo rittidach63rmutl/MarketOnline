@@ -89,8 +89,8 @@ async function handlePlaceOrder() {
 </script>
 
 <template>
-  <div class="space-y-8">
-    <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+  <div class="space-y-5 sm:space-y-8">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800 pb-4">
       <div>
         <h1 class="text-2xl font-bold text-white">Shopping Cart &amp; Checkout</h1>
         <p class="text-xs text-slate-400">
@@ -105,20 +105,20 @@ async function handlePlaceOrder() {
     <!-- Order Confirmation Receipt -->
     <div
       v-if="orderSuccess"
-      class="p-6 rounded-2xl bg-emerald-950/30 border border-emerald-500/40 space-y-4"
+      class="p-4 sm:p-6 rounded-2xl bg-emerald-950/30 border border-emerald-500/40 space-y-4"
     >
-      <div class="flex items-center justify-between">
+      <div class="flex flex-wrap items-center justify-between gap-2">
         <span class="px-3 py-1 rounded-full text-xs font-bold bg-emerald-500 text-slate-950">
           ✓ Order Confirmed
         </span>
-        <span class="text-xs font-mono text-slate-400">Order ID: {{ orderSuccess.id }}</span>
+        <span class="text-xs font-mono text-slate-400 break-all">Order ID: {{ orderSuccess.id }}</span>
       </div>
       <h2 class="text-xl font-bold text-white">Thank you, {{ orderSuccess.recipientName }}!</h2>
       <p class="text-sm text-slate-300">
         Your order has been verified and recorded. Total charged:
         <strong class="text-emerald-400">฿{{ Number(orderSuccess.totalAmount).toLocaleString() }}</strong>
       </p>
-      <div class="pt-2 flex gap-3">
+      <div class="pt-2 flex flex-col sm:flex-row gap-3">
         <RouterLink
           to="/orders"
           class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold"
@@ -156,21 +156,21 @@ async function handlePlaceOrder() {
         <div
           v-for="item in cartStore.items"
           :key="item.productId"
-          class="p-4 rounded-xl bg-slate-900/70 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4"
+          class="p-3 sm:p-4 rounded-xl bg-slate-900/70 border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4"
         >
-          <div class="flex items-center gap-4">
+          <div class="flex items-center gap-3 sm:gap-4 min-w-0 w-full sm:w-auto">
             <img
               :src="item.imageUrl"
               :alt="item.name"
-              class="w-16 h-16 rounded-lg object-cover bg-slate-950 border border-slate-800"
+              class="w-14 h-14 sm:w-16 sm:h-16 shrink-0 rounded-lg object-cover bg-slate-950 border border-slate-800"
             />
-            <div>
+            <div class="min-w-0">
               <h3 class="font-semibold text-slate-100 text-sm">{{ item.name }}</h3>
               <p class="text-xs text-slate-400">Unit Price: ฿{{ Number(item.price).toLocaleString() }}</p>
             </div>
           </div>
 
-          <div class="flex items-center gap-4 self-end sm:self-center">
+          <div class="w-full sm:w-auto flex items-center justify-between sm:justify-start gap-3 sm:gap-4">
             <div class="flex items-center border border-slate-700 rounded-lg overflow-hidden bg-slate-950">
               <button
                 type="button"
@@ -208,7 +208,7 @@ async function handlePlaceOrder() {
       </div>
 
       <!-- Right Column: Checkout Form with Real-Time Validation -->
-      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-6 space-y-5 h-fit">
+      <div class="bg-slate-900/80 border border-slate-800 rounded-2xl p-4 sm:p-6 space-y-5 h-fit">
         <h2 class="text-lg font-bold text-white border-b border-slate-800 pb-3">
           Shipping &amp; Verification
         </h2>
@@ -338,4 +338,3 @@ async function handlePlaceOrder() {
     </div>
   </div>
 </template>
-

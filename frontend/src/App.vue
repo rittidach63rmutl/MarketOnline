@@ -25,14 +25,13 @@ const showUnauthorizedBanner = computed(() => route.query.error === 'unauthorize
 
 <template>
   <div class="min-h-screen flex flex-col bg-slate-950 text-slate-100">
-    <!-- Top Security Status Bar -->
-    <div class="bg-slate-900/90 border-b border-emerald-500/20 text-xs text-slate-400 py-1.5 px-4">
+    <div class="bg-slate-900/90 border-b border-emerald-500/20 text-[11px] sm:text-xs text-slate-400 py-1.5 px-3 sm:px-4">
       <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
         <div class="flex items-center gap-2">
           <span class="inline-block w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-          <span>OWASP Hardened Architecture • HttpOnly JWT Rotation • Zero LocalStorage Token Exposure</span>
+          <span>Welcome to SecVault — shop privacy and security essentials</span>
         </div>
-        <div class="font-mono text-emerald-400/90">TLS / CSP / RBAC Active</div>
+        <span class="hidden sm:inline text-emerald-400/90">Secure online shopping</span>
       </div>
     </div>
 
@@ -49,7 +48,7 @@ const showUnauthorizedBanner = computed(() => route.query.error === 'unauthorize
 
     <!-- Main Navigation Header -->
     <header class="sticky top-0 z-30 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="max-w-7xl mx-auto w-full px-3 sm:px-6 lg:px-8 py-3 sm:py-0 sm:h-16 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
         <RouterLink to="/" class="flex items-center gap-3 group">
           <div class="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-400 font-bold group-hover:bg-emerald-500 group-hover:text-slate-950 transition-colors">
             SV
@@ -60,10 +59,10 @@ const showUnauthorizedBanner = computed(() => route.query.error === 'unauthorize
           </div>
         </RouterLink>
 
-        <nav class="flex items-center gap-3 sm:gap-5 text-sm">
+        <nav class="w-full sm:w-auto flex items-center gap-2 sm:gap-5 text-sm overflow-x-auto sm:overflow-visible pb-1 sm:pb-0">
           <RouterLink
             to="/"
-            class="text-slate-300 hover:text-emerald-400 transition-colors font-medium"
+            class="shrink-0 text-slate-300 hover:text-emerald-400 transition-colors font-medium"
           >
             Catalog
           </RouterLink>
@@ -71,7 +70,7 @@ const showUnauthorizedBanner = computed(() => route.query.error === 'unauthorize
           <RouterLink
             v-if="authStore.isAuthenticated"
             to="/orders"
-            class="text-slate-300 hover:text-emerald-400 transition-colors font-medium"
+            class="shrink-0 text-slate-300 hover:text-emerald-400 transition-colors font-medium"
           >
             My Orders
           </RouterLink>
@@ -79,14 +78,14 @@ const showUnauthorizedBanner = computed(() => route.query.error === 'unauthorize
           <RouterLink
             v-if="authStore.isAdmin"
             to="/admin"
-            class="px-3 py-1.5 rounded-md bg-amber-500/10 border border-amber-500/40 text-amber-300 hover:bg-amber-500/20 font-medium transition-colors"
+            class="shrink-0 px-3 py-1.5 rounded-md bg-amber-500/10 border border-amber-500/40 text-amber-300 hover:bg-amber-500/20 font-medium transition-colors"
           >
             Admin Console
           </RouterLink>
 
           <RouterLink
             to="/cart"
-            class="relative inline-flex items-center gap-2 px-3.5 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-emerald-500/50 text-slate-200 transition-colors"
+            class="relative shrink-0 inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-700 hover:border-emerald-500/50 text-slate-200 transition-colors"
           >
             <span>Cart</span>
             <span
@@ -104,7 +103,7 @@ const showUnauthorizedBanner = computed(() => route.query.error === 'unauthorize
             </div>
             <button
               @click="handleLogout"
-              class="px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-300 hover:bg-rose-500/20 text-xs font-medium transition-colors"
+              class="shrink-0 px-3 py-1.5 rounded-lg bg-rose-500/10 border border-rose-500/30 text-rose-300 hover:bg-rose-500/20 text-xs font-medium transition-colors"
             >
               Logout
             </button>
@@ -113,13 +112,13 @@ const showUnauthorizedBanner = computed(() => route.query.error === 'unauthorize
           <template v-else>
             <RouterLink
               to="/login"
-              class="text-slate-300 hover:text-white font-medium"
+              class="shrink-0 text-slate-300 hover:text-white font-medium"
             >
               Sign In
             </RouterLink>
             <RouterLink
               to="/register"
-              class="px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold transition-colors"
+              class="shrink-0 px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold transition-colors"
             >
               Register
             </RouterLink>
@@ -129,17 +128,16 @@ const showUnauthorizedBanner = computed(() => route.query.error === 'unauthorize
     </header>
 
     <!-- Main View Content -->
-    <main class="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <main class="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-5 sm:py-8">
       <RouterView />
     </main>
 
     <!-- Footer -->
     <footer class="border-t border-slate-900 bg-slate-950 py-6 text-center text-xs text-slate-500">
       <div class="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2">
-        <p>© 2026 SecVault E-Commerce. Designed with OWASP Top 10 Defense-in-Depth.</p>
-        <p>Vue 3 + Pinia + Express + Prisma • Ready for Vercel & Render/Koyeb</p>
+        <p>© 2026 SecVault E-Commerce</p>
+        <p>Thank you for shopping with us.</p>
       </div>
     </footer>
   </div>
 </template>
-

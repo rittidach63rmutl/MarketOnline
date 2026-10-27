@@ -72,9 +72,9 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="space-y-8">
+  <div class="space-y-5 sm:space-y-8">
     <!-- Hero Banner -->
-    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/60 border border-slate-800 p-6 sm:p-10">
+    <section class="relative overflow-hidden rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-emerald-950/60 border border-slate-800 p-4 sm:p-10">
       <div class="max-w-2xl space-y-3">
         <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">
           Hardware-Grade Security Catalog
@@ -82,14 +82,14 @@ onMounted(async () => {
         <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
           Zero-Trust Hardware &amp; Privacy Gear
         </h1>
-        <p class="text-slate-400 text-sm sm:text-base">
-          Every transaction is protected by parameterized queries, strict input sanitization, and HttpOnly token rotation.
+        <p class="text-slate-400 text-sm sm:text-base leading-relaxed">
+          Discover practical gear for safer devices, stronger privacy, and secure everyday work.
         </p>
       </div>
     </section>
 
     <!-- Search & Category Filter Bar -->
-    <section class="flex flex-col md:flex-row gap-4 items-stretch md:items-center justify-between bg-slate-900/70 border border-slate-800 p-4 rounded-xl">
+    <section class="flex flex-col md:flex-row gap-3 sm:gap-4 items-stretch md:items-center justify-between bg-slate-900/70 border border-slate-800 p-3 sm:p-4 rounded-xl">
       <div class="flex flex-wrap gap-2">
         <button
           @click="selectedCategory = 'ALL'"
@@ -136,7 +136,7 @@ onMounted(async () => {
     </div>
 
     <!-- Loading Skeleton -->
-    <div v-if="loading" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div v-if="loading" class="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
       <div
         v-for="n in 8"
         :key="n"
@@ -167,14 +167,14 @@ onMounted(async () => {
     </div>
 
     <!-- Product Grid (Strictly using {{ }} interpolation — never v-html to prevent XSS) -->
-    <div v-else class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div v-else class="grid grid-cols-1 min-[480px]:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
       <article
         v-for="product in products"
         :key="product.id"
         class="group bg-slate-900/60 border border-slate-800 hover:border-emerald-500/40 rounded-xl overflow-hidden flex flex-col justify-between transition-all"
       >
         <div>
-          <div class="relative h-48 bg-slate-950 overflow-hidden">
+          <div class="relative h-44 sm:h-48 bg-slate-950 overflow-hidden">
             <img
               :src="product.imageUrl"
               :alt="product.name"
@@ -195,7 +195,7 @@ onMounted(async () => {
             </span>
           </div>
 
-          <div class="p-4 space-y-2">
+          <div class="p-3 sm:p-4 space-y-2">
             <h2 class="font-bold text-slate-100 text-sm line-clamp-2 group-hover:text-emerald-400 transition-colors">
               {{ product.name }}
             </h2>
@@ -205,7 +205,7 @@ onMounted(async () => {
           </div>
         </div>
 
-        <div class="p-4 pt-2 border-t border-slate-800/80 flex items-center justify-between gap-2">
+        <div class="p-3 sm:p-4 sm:pt-2 border-t border-slate-800/80 flex flex-wrap sm:flex-nowrap items-center justify-between gap-2">
           <div>
             <span class="text-xs text-slate-500 block">Price</span>
             <span class="text-lg font-extrabold text-white">฿{{ Number(product.price).toLocaleString() }}</span>
@@ -236,4 +236,3 @@ onMounted(async () => {
     </div>
   </div>
 </template>
-
