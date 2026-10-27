@@ -100,7 +100,7 @@ npm run dev
 
 ### 1) Database: Supabase หรือ Neon (Free Tier PostgreSQL)
 1. สร้างโปรเจกต์ใหม่บน [Neon.tech](https://neon.tech) หรือ [Supabase](https://supabase.com)
-2. คัดลอก **Connection String (URI)** ที่มีพารามิเตอร์ `?sslmode=require` ไปใส่ใน `DATABASE_URL`
+2. ใน Neon เลือก **Prisma** แล้วคัดลอก PostgreSQL connection string ไปใส่ใน `DATABASE_URL` ของ Render โดยใช้ connection string ที่มี `sslmode=require`
 
 ### 2) Backend: Render หรือ Koyeb (Free Web Service)
 1. เชื่อมต่อ GitHub Repository และตั้งค่า **Root Directory** เป็น `backend`
